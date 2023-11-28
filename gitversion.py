@@ -55,9 +55,8 @@ def deleteTweet():
     response = oauth.delete("https://api.twitter.com/2/tweets/1440778129307461632")
 
     if response.status_code != 200:
-        raise Exception(
-            "Request returned an error: {} {}".format(response.status_code, response.text)
-        )
+        print("Request returned an error: {} {}".format(response.status_code, response.text))
+        return
 
     print("Response status: {}".format(response.status_code))
 
@@ -68,4 +67,4 @@ while True: # Loop forever, errors are ignored.
         deleteTweet()
     except:
         pass
-    time.sleep(60)
+    time.sleep(15)
